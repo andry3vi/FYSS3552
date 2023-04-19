@@ -505,11 +505,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>Problem 3</h1>
 <section id="a-2" class="level2">
 <h2 class="anchored" data-anchor-id="a-2">a</h2>
-<p>The Normal Mass Shift NMS in GHz.amu is given by : <span class="math display">\[
+<p>The mass shift can be splitted in two components: <span class="math display">\[
+\delta \nu_{MS} = \delta \nu_{NMS} + \delta \nu_{SMS} = \dfrac{A^\prime - A}{A^\prime A} \left(\text{NMS} + \text{SMS} \right)
+\]</span></p>
+<p>The Normal Mass Shift NMS, due to the finite nuclear mass, is given in GHz.amu by : <span class="math display">\[
    \text{ NMS} =\frac{m_e}{m_u}\nu_0
 \]</span> with <span class="math inline">\(\frac{m_e}{m_u}\)</span> is the mass of the electron in amu and <span class="math inline">\(\nu_0=\frac{\text{c}}{\lambda}\)</span> in GHz where the wavelength of the transition is <span class="math inline">\(\lambda=363.6\)</span> nm. Hence, <span class="math display">\[
 \text{NMS}=(5.4858\times 10^{-4}) \times (825.0825\times 10^{-3})=452.5578 \ \text{GHz}.\text{amu}
-\]</span> The Specific Mass Shift SMS in GHz.amu can then be deduced, knowing the Mass Shift MS in GHz.amu, using <span class="math display">\[
+\]</span> The Specific Mass Shift SMS is related to the correlated pairs of electron momenta. There is no analytical expression and the calculation is difficult, in fact it is only calculable for 2- and 3-electron systems. SMS is usually evaluated by experiment using evaluations of nuclear size changes independent from optical data (for example electron scattering, muonic x-rays, electronic K xrays, etc – generally all on stable atoms however!). From the Mass shift factor MS one can deduce the SMS in GHz.amu, using: <span class="math display">\[
     \text{SMS}=\text{MS}-\text{NMS}= 845-425.5578=392.4422  \ \text{GHz}.\text{amu}
 \]</span></p>
 </section>
