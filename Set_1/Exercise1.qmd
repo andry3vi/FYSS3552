@@ -1,0 +1,411 @@
+---
+title: "Laser Exercise 1"
+subtitle: "FYSS3552"
+highlight-style: github #pygments
+number-sections: False
+jupyter: python3
+format:
+  html:
+    code-fold: true 
+    fig-pos: 'h!'
+    toc: true
+  pdf:
+    documentclass: article
+    papersize: a4paper
+    fig-pos: 'H'
+    code-fold: true
+    geometry:
+      - top=30mm
+      - left=20mm
+      - heightrounded
+---
+
+# Problem 1
+## a
+Given an uniform charge distribution inside a sphere of radius $R$ the charge density is computed as:
+$$
+ \rho = \dfrac{Ze}{\frac{4}{3}\pi R^3}
+$$
+
+From Gauss's law the electric field flux outside a closed surface is:
+$$
+    \Phi(E) = \dfrac{Q}{\epsilon_0}
+$$
+
+where $Q$ is the charge contained within the surface.
+Considering the isotropy of the spherical system in exam, the electrical field at distance $r$ from the sphere center is then computed:
+$$
+\begin{aligned}[c]
+        \mathbf{r}&\leq\mathbf{R} \\
+        E(r) &= \dfrac{Q}{4\pi\epsilon_0 r^2}\\
+             &= \dfrac{\rho \frac{4}{3}\pi r^3}{4\pi\epsilon_0 r^2}\\
+             &= \dfrac{Ze}{4\pi\epsilon_0} \dfrac{r}{R^3}
+    \end{aligned}
+    \qquad \qquad
+    \begin{aligned}[c]
+        \mathbf{r}&> \mathbf{R}\\
+        E(r) &= \dfrac{Q}{4\pi\epsilon_0 r^2}\\
+            &= \dfrac{Ze}{4\pi\epsilon_0 r^2}\\
+            & \\
+            &%
+    \end{aligned}
+$$
+
+The potential difference between two points can be extracted as:
+$$
+   \Delta V_{r_1,r_2} = V(r_1)-V(r_2) = - \int_{r_2}^{r_1} E(r) dr 
+$$
+
+At $r> R$, since $V(\infty) = 0$:
+$$
+\label{eq:ge}
+\begin{aligned}
+    V(r) = V(r)-V(\infty) &=  \int_{r}^{\infty} E(r^\prime) dr^\prime\\
+    &=  \int_{r}^{\infty}\dfrac{Ze}{4\pi\epsilon_0 r^{\prime2}} dr^\prime\\
+    &=  \dfrac{Ze}{4\pi\epsilon_0} \left[ \dfrac{1}{r^{\prime}} \right]_{\infty}^{r}\\
+    &= \dfrac{Ze}{4\pi\epsilon_0 r}
+\end{aligned}
+$$
+
+Similarly for $r\leq R$:
+$$
+\label{eq:leq}
+\begin{aligned}
+    V(r) &=  \int_{r}^{\infty} E(r^\prime) dr^\prime\\
+    &=  \int_{r}^{R} E(r^\prime) dr^\prime - \int_{R}^{\infty} E(r^\prime) dr^\prime\\
+    &=  \int_{r}^{R} \dfrac{Ze}{4\pi\epsilon_0} \dfrac{r^{\prime}}{R^3}dr^\prime + \dfrac{Ze}{4\pi\epsilon_0 R}\\
+    &=  \dfrac{Ze}{4\pi\epsilon_0 R^3}\left[ \dfrac{1}{2} r^{\prime 2}\right]_{r}^{R} + \dfrac{Ze}{4\pi\epsilon_0 R}\\
+    &= \dfrac{Ze}{4\pi\epsilon_0 R}\left( \dfrac{3}{2} - \dfrac{r^2}{2R^2}\right)
+\end{aligned}
+$$
+
+The potential energy is obtained by multiplying above equations by $-e$, hence:
+$$
+    \begin{aligned}[c]
+        \mathbf{r}&\leq\mathbf{R} \\
+        U(r) &= -\dfrac{Ze^2}{4\pi\epsilon_0 R}\left( \dfrac{3}{2} - \dfrac{r^2}{2R^2}\right)
+    \end{aligned}
+    \qquad \qquad
+    \begin{aligned}[c]
+        \mathbf{r}&> \mathbf{R}\\
+        U(r) &= -\dfrac{Ze^2}{4\pi\epsilon_0 r}
+    \end{aligned}
+$$
+
+## b
+One wants to show that
+$$
+    \Delta E =  \frac{4\pi}{10} \mid \Psi(0)\mid^2\frac{Ze^2}{4\pi \epsilon_0}R^2\\
+$$
+Using the derived potentials of point (a) and the following equation for the energy perturbation
+$$
+    \Delta E =  \int_{0}^{\infty} \Psi^*(V(r)-V_0(r))\Psi\cdot 4\pi r^2 dr
+$$
+Hence, using the “allowed wavefunction” approximation, $\Psi(0) \sim \Psi(r)$:
+$$
+    \Delta E =  \mid\Psi(0)\mid^2 \cdot \int_{0}^{\infty} (V(r)-V_0(r))\cdot 4\pi r^2 dr\\
+$$
+
+Splitting the integral one has
+
+$$
+    \Delta E =  \mid\Psi(0)\mid^2 (\int_{0}^{R} (V(r)-V_0(r))\cdot 4\pi r^2 dr
+    + \int_{R}^{\infty} (V(r)-V_0(r))\cdot 4\pi r^2 dr)
+$$
+For $r>R$, $V(r)=V_0(r)$ canceling out the second term. Substituting the expressions of the potential energy, the energy perturbation is then 
+$$
+    \Delta E = -\dfrac{Ze^2}{4\pi\epsilon_0} \mid\Psi(0)\mid^2 4\pi\left[\int_{0}^{R} \frac{3}{2R} \cdot r^2 dr-\int_{0}^{R} \dfrac{r^2}{2R^3}\cdot r^2 dr -\int_{0}^{R} \frac{1}{r} \cdot  r^2 dr\right]
+$$
+$$
+    \Delta E = -\dfrac{Ze^2}{4\pi\epsilon_0} \mid\Psi(0)\mid^2 4\pi\left[ \frac{3}{2R}\cdot  \frac{R^3}{3}-\dfrac{1}{2R^3}\cdot  \frac{R^5}{5} -  \frac{R^2}{2}\right]
+$$
+And finally,
+$$
+    \Delta E =  \frac{Ze^2}{4\pi \epsilon_0} \mid \Psi(0)\mid^2\frac{4\pi}{10}R^2\\
+$$
+
+# Problem 2
+## a
+From the wave numbers $k$ in $\text{cm}^{-1}$ given for the 2 J states involved of the considered D2 transition, one can give the transition in nm unit, using the wavelength $\lambda$ :
+$$
+   \Delta \lambda=\frac{2\pi}{\Delta k}=\frac{2\pi}{12816.55\times 10^{7}}=780.2412 \ \text{nm}
+$$
+One can also give the transition in THz using the frequency $\nu$ :
+$$
+    \Delta \nu=\frac{\text{c}}{\Delta \lambda}=384.2305 \ \text{THz}
+$$
+
+## b
+The lifetime of the considered excited state is $\tau=26.2$ ns. The spontaneous decay rate $A$ can then be deduced knowing :
+$$
+    A=\frac{1}{\tau}=\frac{1}{26.2\times 10^{-9}}=3.817\times10^7 \ \text{s}^{-1}
+$$
+The Einstein coefficient $A$ is a measure of the relative intensity of the spectral line. The natural linewidth of the emitted radiation can be calculated as:
+$$
+    \Gamma=\frac{A}{2\pi} \sim 6.078 \ \text{MHz}
+$$
+
+## c
+The states are further split into hyperfine $F$ states following the coupling of the atomic $J$ spins with the nuclear spin $I$. The $F$ states are then $\mid I-J \mid\leq F \leq I+J$. Considering first the ground state $S_{1/2}$ of the D2 transition, in case of $^{85}\text{Rb}$ the nuclear spin is $I=5/2$ which gives $F=[2,3]$. In case of $^{87}\text{Rb}$ the nuclear spin is $I=3/2$ which gives $F=[1,2]$. Considering then the excited state $P_{3/2}$ of the D2 transition, in case of $^{85}\text{Rb}$ the $F$ states are $F=[1,2,3,4]$. In case of $^{87}\text{Rb}$ the $F$ states are $F=[0,1,2,3]$.
+
+
+The possible electric dipole transitions which are allowed are given by the selection rules which are 
+$$\Delta F=0,\pm1 $$
+$$F=0 \not\to F=0$$
+The possible electric dipole transitions are displayed for both $^{85}\text{Rb}$ and $^{87}\text{Rb}$.
+
+![HFS of $^{85}\text{Rb}$ and $^{87}\text{Rb}$](rb_HFS.png) 
+
+## d
+
+```{python}
+#| label: tbl-ground-85Rb
+#| tbl-cap: Energy shifts with respect to the unperturbed position computed for the ground $S_{1/2}$ state of $^{85}\text{Rb}$
+
+from IPython.display import Markdown
+from tabulate import tabulate
+A = [1012, 25.002] # MHz
+B = [0,25.790] # MHz
+I = 5/2
+J = [1/2,3/2]
+
+# dictionary containing HF shifts
+F_up  = {1:0,2:0,3:0,4:0}
+F_low = {2:0,3:0}
+
+table = []
+# compute energy shift for each HF component
+for f in F_low.keys():
+   
+    k = f*(f+1)-I*(I+1)-J[0]*(J[0]+1)
+    try:
+        B_coeff = (3*0.5*k*(k+1)-2*I*(I+1)*J[0]*(J[0]+1))/(2*I*(2*I-1)*2*J[0]*(2*J[0]-1))
+    except:
+        B_coeff = 0
+
+    dE = 0.5*A[0]*k + B[0]*B_coeff
+    
+    F_low[f] = dE
+
+    table.append([f,dE*1e-3])
+
+Markdown(tabulate(
+  table, 
+  headers=["F", "$\Delta E_{hfs}$ [GHz]"]
+))
+```
+```{python}
+#| label: tbl-excited-85Rb
+#| tbl-cap: Energy shifts with respect to the unperturbed position computed for the excited $P_{3/2}$ state of $^{85}\text{Rb}$
+
+table=[]
+for f in F_up.keys():
+   
+    k = f*(f+1)-I*(I+1)-J[1]*(J[1]+1)
+    try:
+        B_coeff = (3*0.5*k*(k+1)-2*I*(I+1)*J[1]*(J[1]+1))/(2*I*(2*I-1)*2*J[1]*(2*J[1]-1))
+    except:
+        B_coeff = 0    
+    
+    dE = 0.5*A[1]*k + B[1]*B_coeff
+    
+    F_up[f] = dE
+    table.append([f,dE])
+
+Markdown(tabulate(
+  table, 
+  headers=["F", "$\Delta E_{hfs}$ [MHz]"]
+))
+```
+
+Using the HFS shifts presented in previous tables the HFS positions of the allowed transition can be computed as:
+$$
+\gamma = \nu_0+\Delta E_{\text{hfs}}^{P_{3/2}}-\Delta E_{\text{hfs}}^{S_{1/2}}
+$$
+
+```{python}
+#| label: tbl-allowed_transitions
+#| tbl-cap: Atomic resonance positions in MHz with respect to the unperturbed resonance frequency $\nu_0$ for the allowed hyperfine transitions of $^{85}\text{Rb}$
+# allowed transitions
+ftof = [
+    [2,1],
+    [2,2],
+    [2,3],
+    [3,2],
+    [3,3],
+    [3,4]
+]
+table = []
+for T in ftof:
+
+    delta = F_up[T[1]]-F_low[T[0]]
+    table.append([r"{} $\rightarrow$ {}".format(T[0],T[1]),delta])
+Markdown(tabulate(
+  table, 
+  headers=[r"$F_{S_{1/2}} \rightarrow F_{S_{1/2}}$", r"$\gamma - \nu_0$ [MHz]"]
+))
+```
+```{python}
+#| label: fig-85Rb
+#| fig-cap: Atomic resonance peak positions in MHz with respect to the unperturbed resonance frequency $\nu_0$ for the allowed hyperfine transitions of $^{85}\text{Rb}$
+import satlas2 as sat 
+import matplotlib.pyplot as plt
+import numpy as np
+
+size = 20
+plt.rcParams['font.size']=size
+
+#build an hfs model with racah intensities
+HFS_model = sat.HFS(I=I, J=J, df=0, fwhml=10,fwhmg=10, A=A, B=B, scale= 1, name='HFS', racah=True)
+
+fig, axs= plt.subplots(figsize=(16,9), dpi=100)
+
+x = np.linspace(-1500, 1800, 1000)
+
+#plot hfs model
+axs.plot(x,HFS_model.f(x))
+
+#mark the different transitions
+yy=1
+for T in ftof:
+
+    delta = F_up[T[1]]-F_low[T[0]]
+    label = str(T[0])+"to"+str(T[1])
+    if yy == 1:
+        yy = 1.15
+    else:
+        yy = 1
+    axs.text(delta,y=yy,horizontalalignment='right',verticalalignment='center',rotation=90,s=label)
+    axs.axvline(delta,linestyle='dashed')
+
+axs.set_yticks([])
+axs.set_xlabel(r"Frequency- $\nu_0$ [MHz]")
+axs.set_ylim(0,1.5)
+plt.show()
+```
+
+# Problem 3
+## a
+
+The Normal Mass Shift NMS in GHz.amu is given by :
+$$
+   \text{ NMS} =\frac{m_e}{m_u}\nu_0
+$$
+with $\frac{m_e}{m_u}$ is the mass of the electron in amu and $\nu_0=\frac{\text{c}}{\lambda}$ in GHz where the wavelength of the transition is $\lambda=363.6$ nm. Hence,
+$$
+\text{NMS}=(5.4858\times 10^{-4}) \times (825.0825\times 10^{-3})=452.5578 \ \text{GHz}.\text{amu}
+$$
+The Specific Mass Shift SMS in GHz.amu can then be deduced, knowing the Mass Shift MS in GHz.amu, using
+$$
+    \text{SMS}=\text{MS}-\text{NMS}= 845-425.5578=392.4422  \ \text{GHz}.\text{amu}
+$$
+
+## b
+Using the given formula which defines isotopic shift:
+$$
+    \delta \nu_{i}^{A_{ref},A}= \dfrac{m_A-m_{A_{ref}}}{m_A m_{A_{ref}}}M_i + F_i \delta\langle r^2\rangle^{A_{ref},A}
+$$
+the mean-square charge radii can be computed:
+$$
+    \delta\langle r^2\rangle^{A_{ref},A} = \frac{1}{F_i} \left(\delta \nu_{i}^{A_{ref},A} - \dfrac{m_A-m_{A_{ref}}}{m_A m_{A_{ref}}}M_i \right)
+$$
+
+```{python}
+#| label: tbl-iso_shifts
+#| tbl-cap: Mean-square charge radii computed for Pd isotopes.
+isotopes = 102,104,105,106,108,110,112,114,116,118
+masses = 101.905602,103.904031,104.905080,105.903480,107.903892,109.905172,111.907330,113.910369,115.914297,117.919067
+iso_shifts = 1452.8,958.1,839.7,494.7,0.0,-436.4,-738.0,-962.0,-1080.0,-1164.0
+M = 845e3 #MHz.amu
+F = -2.9e3 #MHz/fm^2 
+table = []
+delta = []
+for iso,mass,iso_shift in zip(isotopes,masses,iso_shifts):
+    mass_shift = M*(mass-masses[4])/(mass*masses[4])
+    delta.append((iso_shift - mass_shift)/F) 
+    table.append([iso,mass,iso_shift,mass_shift,delta[-1]])
+Markdown(tabulate(
+  table, 
+  headers=['Isotope','Atomic mass [u]', 'Shifts [MHz]','Mass Shift [MHz]',r'$\delta \langle r^2 \rangle^{108,A}$ [fm$^2$]']
+))
+```
+
+
+```{python}
+#| label: fig-Pd_charge
+#| fig-cap: Mean-square charge radii computed for Pd isotopes as a function of neutrons number.
+
+size = 20
+plt.rcParams['font.size']=size
+
+fig, axs= plt.subplots(figsize=(16,9), dpi=100)
+
+#plot hfs model
+axs.plot(isotopes,delta,"ob--")
+
+axs.set_xlabel('A')
+axs.set_ylabel(r'$\delta \langle r^2 \rangle^{108,A}$ [fm$^2$]')
+
+plt.show()
+```
+
+# Problem 4
+## a
+![HFS of $^{229g}\text{Th}$ and $^{229m}\text{Th}$](229Th_HFS.png) 
+
+## b 
+Using the given relations:
+$$
+\begin{aligned}[c]
+\dfrac{A}{A_{ref}}\sim \dfrac{\mu\ I_{ref}}{\mu_{ref}\ I}
+\end{aligned}
+\qquad \qquad
+\begin{aligned}[c]
+\dfrac{B}{B_{ref}}\sim \dfrac{Q_s}{Q_{s,ref}}
+\end{aligned}
+$$
+the magnetic moment and electric quadrupole moment of the isomeric state can be extracted as:
+$$
+\begin{aligned}[c]
+\dfrac{A_{iso}}{A_{gs}}&\sim \dfrac{\mu_{iso}\ I_{gs}}{\mu_{gs}\ I_{iso}}\\
+\mu_{iso} &\sim \dfrac{A_{iso}}{A_{gs}} \dfrac{I_{iso}}{I_{gs}} \mu_{gs} = 0.371 \mu_{\text{n}}
+\end{aligned}
+\qquad \qquad
+\begin{aligned}[c]
+\dfrac{B_{iso}}{B_{gs}}&\sim \dfrac{Q_{s,iso}}{Q_{s,gs}}\\
+Q_{s,iso} &\sim \dfrac{B_{iso}}{B_{gs}}Q_{s,gs} = 1.75 \text{eb}
+\end{aligned}
+$$
+The A and B factor of the g.s. and isomeric states where chosen from the 20711 cm$^{-1}$ level.
+
+## c
+In the case of strongly deformed nuclei the following relation is valid:
+$$
+    Q_s = \dfrac{3K^2 - I(I+1)}{(I+1)(2I+3)}Q_0
+$$
+where $K$ is the projection of the nuclear spin on the symmetry axis. In the states considered in particular K is equal to I.
+
+Finally:
+$$
+\begin{aligned}[c]
+    Q_0^{^{229g}\text{Th}} &= \dfrac{(I+1)(2I+3)}{3I^2 - I(I+1)}Q_s\\
+    &=\frac{14}{5} Q_s = 8.82 \text{eb}
+\end{aligned}
+\qquad \qquad
+\begin{aligned}[c]
+    Q_0^{^{229m}\text{Th}} &= \dfrac{(I+1)(2I+3)}{3I^2 - I(I+1)}Q_s\\
+    &=5 Q_s = 8.75 \text{eb}
+\end{aligned}
+$$
+
+The two values are in good agreement, this means that the nuclear charge distribution has a similar shape (prolate) in both the configurations.
+
+## d
+Assuming a negligible mass shift contribution the mean-square charge radii deviation can be computed as:
+$$
+    \delta \langle r^2\rangle^{1,2} \sim \dfrac{\delta \nu^{1,2}}{F}
+$$
+Knowing the ratio between isomer to isotope shifts, the isomeric mean-square charge radii shift can be computed as:
+$$
+    \delta \langle r^2\rangle^{229m,229} = \delta \langle r^2\rangle^{229,232} \dfrac{\delta \nu^{229m,229}}{\delta \nu^{229,232}} = 0.012\ \text{fm}^2
+$$
