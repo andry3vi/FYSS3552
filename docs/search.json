@@ -36,7 +36,7 @@
   },
   {
     "objectID": "Exercise1.html#c",
-    "href": "Exercise1.html#c",
+    "href": "Exercise1.html#c",https://andry3vi.github.io/FYSS3552
     "title": "Laser Exercise 1",
     "section": "c",
     "text": "c\nThe states are further split into hyperfine \\(F\\) states following the coupling of the atomic \\(J\\) spins with the nuclear spin \\(I\\). The \\(F\\) states are then \\(\\mid I-J \\mid\\leq F \\leq I+J\\). Considering first the ground state \\(S_{1/2}\\) of the D2 transition, in case of \\(^{85}\\text{Rb}\\) the nuclear spin is \\(I=5/2\\) which gives \\(F=[2,3]\\). In case of \\(^{87}\\text{Rb}\\) the nuclear spin is \\(I=3/2\\) which gives \\(F=[1,2]\\). Considering then the excited state \\(P_{3/2}\\) of the D2 transition, in case of \\(^{85}\\text{Rb}\\) the \\(F\\) states are \\(F=[1,2,3,4]\\). In case of \\(^{87}\\text{Rb}\\) the \\(F\\) states are \\(F=[0,1,2,3]\\).\nThe possible electric dipole transitions which are allowed are given by the selection rules which are \\[\\Delta F=0,\\pm1 \\] \\[F=0 \\not\\to F=0\\] The possible electric dipole transitions are displayed for both \\(^{85}\\text{Rb}\\) and \\(^{87}\\text{Rb}\\).\n\n\n\nHFS of \\(^{85}\\text{Rb}\\) and \\(^{87}\\text{Rb}\\)"

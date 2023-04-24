@@ -21,7 +21,7 @@ format:
       - heightrounded
 ---
 
-Available at [https://andry3vi.github.io/FYSS3552/index.html](https://andry3vi.github.io/FYSS3552/index.html)
+Available at [https://andry3vi.github.io/FYSS3552](https://andry3vi.github.io/FYSS3552)
 
 # Problem 1
 ## a
