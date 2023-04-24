@@ -4,7 +4,7 @@
     "href": "Exercise1.html",
     "title": "Laser Exercise 1",
     "section": "",
-    "text": "Available at exercise1"
+    "text": "Available at https://andry3vi.github.io/FYSS3552/index.html"
   },
   {
     "objectID": "Exercise1.html#a",
@@ -89,5 +89,61 @@
     "title": "Laser Exercise 1",
     "section": "d",
     "text": "d\nAssuming a negligible mass shift contribution the mean-square charge radii deviation can be computed as: \\[\n    \\delta \\langle r^2\\rangle^{1,2} \\sim \\dfrac{\\delta \\nu^{1,2}}{F}\n\\] Knowing the ratio between isomer to isotope shifts, the isomeric mean-square charge radii shift can be computed as: \\[\n    \\delta \\langle r^2\\rangle^{229m,229} = \\delta \\langle r^2\\rangle^{229,232} \\dfrac{\\delta \\nu^{229m,229}}{\\delta \\nu^{229,232}} = 0.012\\ \\text{fm}^2\n\\]"
+  },
+  {
+    "objectID": "Exercise2.html",
+    "href": "Exercise2.html",
+    "title": "Laser Exercise 2",
+    "section": "",
+    "text": "Available at https://andry3vi.github.io/FYSS3552/index.html"
+  },
+  {
+    "objectID": "Exercise2.html#a",
+    "href": "Exercise2.html#a",
+    "title": "Laser Exercise 2",
+    "section": "a",
+    "text": "a\nAccording to Doppler broadening formula: \\[\n    \\Delta f_{\\text{Doppler}}=\\sqrt{\\frac{8kT\\cdot \\text{ln}(2)}{m c^2}}\\cdot f_0\n\\] Hence, \\[\n    \\Delta f_{\\text{Doppler}}=7.17\\times10^{-7} \\sqrt{\\frac{T}{m}}\\cdot f_0\n\\] converting \\(f_0\\) in frequency: \\[\n    f_0=\\frac{c}{\\lambda}=\\frac{3\\times10^{8}\\ \\text{m/s}}{400\\times10^{-9}\\text{m}}=7.5\\times10^{14}\\ \\text{Hz}\n\\] \\[\n\\Delta f_{\\text{Doppler}}=7.17\\times10^{-7} \\sqrt{\\frac{2500}{232}}\\cdot 7.5\\times10^{14}\\ \\text{Hz}\n\\] \\[\n\\Delta f_{\\text{Doppler}}= 176.5271\\times10^{7}\\text{Hz} = 1.765271\\ \\text{GHz}\n\\]\nThe laser linewidth \\(\\Delta f_{\\text{laser}}\\) can be extracted as:\n\\[\n\\begin{aligned}\n    \\Delta f_{\\text{Gauss}}&=\\sqrt{\\Delta f^{2}_{\\text{laser}} + \\Delta f^{2}_{\\text{Doppler}}}\\\\\n    \\Delta f^{2}_{\\text{Gauss}}&={\\Delta f^{2}_{\\text{laser}} + \\Delta f^{2}_{\\text{Doppler}}}\\\\\n    \\Delta f_{\\text{laser}}&=\\sqrt{\\Delta f^{2}_{\\text{Gauss}} - \\Delta f^{2}_{\\text{Doppler}}}\\\\\n\\end{aligned}\n\\] First \\(\\Delta f_{\\text{Gauss}}\\) need to be computed:\n\\[\n    \\Delta f_{\\text{Gauss}}=\\frac{c}{\\lambda^{2}}\\cdot\\Delta\\lambda=\\frac{3\\times10^{8}\\ \\text{m/s}}{(400\\times10^{-9}\\text{m})^{2}} \\cdot 1.5\\times10^{-3}\\text{nm} = 2.8125\\ \\text{GHz}\n\\] Therefore: \\[\n    \\Delta f_{\\text{laser}}=\\sqrt{\\Delta f^{2}_{\\text{Gauss}} - \\Delta f^{2}_{\\text{Doppler}}} = \\sqrt{(2.8125\\ \\text{GHz})^{2} - (1.7653\\ \\text{GHz})^{2}} = 2.1895\\ \\text{GHz}\n\\]"
+  },
+  {
+    "objectID": "Exercise2.html#b",
+    "href": "Exercise2.html#b",
+    "title": "Laser Exercise 2",
+    "section": "b",
+    "text": "b\nFrom the gas pressure the \\(\\Delta f_{\\text{Lorentz}}\\) is computed as 300 mbar \\(\\times\\) 10 MHz/mbar (\\(\\Delta f_{\\text{Lorentz}} = 3 \\text{GHz}\\)).\nThe doppler contribution is computed with the same formula of point a, the gaussian doppler broadening, at room temperature: \\[\n    \\Delta f_{\\text{Doppler}}=\\sqrt{\\frac{8kT\\cdot \\text{ln}(2)}{m c^2}}\\cdot f_0 = 604 \\text{MHz}\n\\] Hence the total gaussian contribution result in: \\[\n    \\Delta f_{\\text{Gauss}} = \\sqrt{\\Delta f^{2}_{\\text{Laser}} + \\Delta f^{2}_{\\text{Doppler}}} = 2.28 \\text{GHz}\n\\]\nThe FWHM of the Voigt profile is then extracted: \\[\n    \\begin{aligned}\n        \\Delta f_{\\text{Voigt}}&=0.5346\\times\\Delta f_{\\text{Lorentz}} +  \\sqrt{0.2166\\times\\Delta f^{2}_{\\text{Lorentz}} + \\Delta f^{2}_{\\text{Gauss}}}\\\\\n        &=0.5346\\times3\\text{GHz} +  \\sqrt{0.2166\\times(3\\text{GHz})^{2} + (2.28\\ \\text{GHz})^{2}}\\\\\n        &=4.28\\ \\text{GHz}\n    \\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "Exercise2.html#c",
+    "href": "Exercise2.html#c",
+    "title": "Laser Exercise 2",
+    "section": "c",
+    "text": "c\nOnly the hot cavity has a resolution below 4GHz"
+  },
+  {
+    "objectID": "Exercise2.html#a-1",
+    "href": "Exercise2.html#a-1",
+    "title": "Laser Exercise 2",
+    "section": "a",
+    "text": "a\nA laser tuned in resonance with the \\(^{232}\\text{Th}\\) transition from \\(0 \\to 38278\\) cm\\(^{-1}\\) is directed into a hot cavity at a temperature of \\(T=1800\\) K. The frequency of the transition is then : \\[\n    f_0=\\frac{c}{\\lambda}=c k=114.834 \\ \\text{GHz}\n\\] The Doppler broadening can be computed using the equation \\[\n    \\Delta f_{\\text{Doppler}}=\\sqrt{\\frac{8kT\\cdot \\text{ln}(2)}{m c^2}}\\cdot f_0=2.28498 \\ \\text{GHz}\n\\]\nAccelerating the beam to 40 kV the energy spread will still be present, but the velocity spread will shrink. This can be computed from: \\[\nE = \\dfrac{m v^2}{2}\n\\] \\[\n\\Delta E = m v \\Delta v\n\\]\n\\[\n\\Delta v = \\dfrac{\\Delta E}{\\sqrt{2 m E}}\n\\]\nThe energy spread can be computed in the hot cavity knowing the doppler broadening calculated above, since the velocity spread is what gives the doppler broadening, as the doppler shift widens the frequency band \\(\\dfrac{\\Delta f}{f} = \\dfrac{\\Delta v}{c}\\):\n\\[\n\\Delta E = \\dfrac{\\Delta f}{f}\\sqrt{2mE} = \\dfrac{\\Delta f}{f}\\sqrt{mkTc^2} = 0.37\\ eV  \n\\]\nUsing this energy spread the doppler broadening of a 40 kV beam can be computed :\n\\[\n\\Delta f = f \\dfrac{\\Delta v}{c} = f \\dfrac{\\Delta E}{\\sqrt{2mEc^2}}=3.2\\ \\text{MHz}\n\\]\nThe compression factor is: \\[\n\\dfrac{2.3\\ \\text{GHz}}{3.2\\ \\text{MHz}} = 718 \\approx 1\\times10^3\n\\]"
+  },
+  {
+    "objectID": "Exercise2.html#a-2",
+    "href": "Exercise2.html#a-2",
+    "title": "Laser Exercise 2",
+    "section": "a",
+    "text": "a\nAs computed in the previous exercise:\n\\[\n\\Delta f = f \\dfrac{\\Delta v}{c} = f \\dfrac{\\Delta E}{\\sqrt{2 m E c^2}} = 10^{15}\\ \\text{Hz} \\times \\dfrac{1\\ \\text{eV}}{\\sqrt{2\\cdot100\\cdot931.494\\ \\text{MeV}\\cdot 40\\ \\text{keV} }}= 11.58\\ \\text{MHz} \\approx 12\\ \\text{MHz}  \n\\]"
+  },
+  {
+    "objectID": "Exercise2.html#a-3",
+    "href": "Exercise2.html#a-3",
+    "title": "Laser Exercise 2",
+    "section": "a",
+    "text": "a\nThe D2 transitions are listed in the following table:\n\n\nTable 1: Measured D2 transitions from (Batteiger et al. 2009)\n\n\nTransition\nTransition [MHz]\n\n\n\n\n\\(^{24}\\)Mg D2 (3s\\(_{1/2}\\)-3p\\(_{3/2}\\)-)\n1072082934.33(16)\n\n\n\\(^{26}\\)Mg D2 (3s\\(_{1/2}\\)-3p\\(_{3/2}\\)-)\n1072086021.89(16)\n\n\n\n\nThe energy spreads for both isotopes is computed from the Doppler broadening formula: \\[\n    \\delta \\nu_D = \\nu_0\\dfrac{\\delta E}{\\sqrt{2 E m c^2}} \\Rightarrow  \\delta E= \\sqrt{2 E m c^2}\\dfrac{\\delta \\nu_D }{\\nu_0}\n\\] Hence, assuming a linewidth governed by Doppler broadening : \\[\n    \\begin{aligned}\n    \\mathbf{^{24}\\textbf{Mg}}& \\\\\n    \\delta E &= 1.91 \\text{eV}\\\\\n    \\end{aligned}\n    \\qquad \\qquad\n    \\begin{aligned}\n    \\mathbf{^{26}\\textbf{Mg}}& \\\\\n    \\delta E &= 1.99 \\text{eV}\\\\\n    \\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "Exercise2.html#b-1",
+    "href": "Exercise2.html#b-1",
+    "title": "Laser Exercise 2",
+    "section": "b",
+    "text": "b\nThe relativistic doppler shift equation is:\n\\[\n\\nu_{obs} = \\nu_{rest}\\sqrt{\\dfrac{1-\\beta}{1+\\beta}}\n\\] with: \\[\n\\beta = \\sqrt{1-\\left( \\dfrac{mc^2}{mc^2+E_k}\\right)^2}\n\\]\nApplying the formula for the two masses and kinetic energies the following frequency shifts are found:\n\n\nTable 2: doppler and isotope shift at different beam energies\n\n\nIsotope\n1.5 keV shift [MHz]\n1.54 keV shift [MHz]\n\n\n\n\n\\(^{24}\\)Mg\n377256\n382252\n\n\n\\(^{26}\\)Mg\n392658\n397858\n\n\nIsotope Shift \\(\\delta \\nu\\)\n15402\n15606\n\n\n\n\nThe corresponding change in IS is therefore 204 MHz"
   }
 ]

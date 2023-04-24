@@ -1,0 +1,193 @@
+---
+title: "Laser Exercise 2"
+subtitle: "FYSS3552"
+highlight-style: github #pygments
+number-sections: False
+jupyter: python3
+bibliography: references.bib
+format:
+  html:
+    code-fold: true 
+    fig-pos: 'h!'
+    toc: true
+  pdf:
+    documentclass: article
+    papersize: a4paper
+    fig-pos: 'H'
+    code-fold: true
+    geometry:
+      - top=30mm
+      - left=20mm
+      - heightrounded
+---
+
+Available at [https://andry3vi.github.io/FYSS3552/index.html](https://andry3vi.github.io/FYSS3552/index.html)
+
+# Problem 1
+## a
+According to Doppler broadening formula:
+$$
+    \Delta f_{\text{Doppler}}=\sqrt{\frac{8kT\cdot \text{ln}(2)}{m c^2}}\cdot f_0 
+$$
+Hence,
+$$
+    \Delta f_{\text{Doppler}}=7.17\times10^{-7} \sqrt{\frac{T}{m}}\cdot f_0
+$$
+converting $f_0$ in frequency:
+$$
+    f_0=\frac{c}{\lambda}=\frac{3\times10^{8}\ \text{m/s}}{400\times10^{-9}\text{m}}=7.5\times10^{14}\ \text{Hz}
+$$
+$$
+\Delta f_{\text{Doppler}}=7.17\times10^{-7} \sqrt{\frac{2500}{232}}\cdot 7.5\times10^{14}\ \text{Hz}
+$$
+$$
+\Delta f_{\text{Doppler}}= 176.5271\times10^{7}\text{Hz} = 1.765271\ \text{GHz}
+$$
+
+The laser linewidth $\Delta f_{\text{laser}}$ can be extracted as:
+
+$$
+\begin{aligned}
+    \Delta f_{\text{Gauss}}&=\sqrt{\Delta f^{2}_{\text{laser}} + \Delta f^{2}_{\text{Doppler}}}\\
+    \Delta f^{2}_{\text{Gauss}}&={\Delta f^{2}_{\text{laser}} + \Delta f^{2}_{\text{Doppler}}}\\
+    \Delta f_{\text{laser}}&=\sqrt{\Delta f^{2}_{\text{Gauss}} - \Delta f^{2}_{\text{Doppler}}}\\
+\end{aligned}
+$$
+First $\Delta f_{\text{Gauss}}$ need to be computed:
+
+$$
+    \Delta f_{\text{Gauss}}=\frac{c}{\lambda^{2}}\cdot\Delta\lambda=\frac{3\times10^{8}\ \text{m/s}}{(400\times10^{-9}\text{m})^{2}} \cdot 1.5\times10^{-3}\text{nm} = 2.8125\ \text{GHz}
+$$
+Therefore:
+$$
+    \Delta f_{\text{laser}}=\sqrt{\Delta f^{2}_{\text{Gauss}} - \Delta f^{2}_{\text{Doppler}}} = \sqrt{(2.8125\ \text{GHz})^{2} - (1.7653\ \text{GHz})^{2}} = 2.1895\ \text{GHz} 
+$$
+
+## b
+
+From the gas pressure the $\Delta f_{\text{Lorentz}}$ is computed as 300 mbar $\times$ 10 MHz/mbar ($\Delta f_{\text{Lorentz}} = 3 \text{GHz}$).  
+The doppler contribution is computed with the same formula of point a, the gaussian doppler broadening, at room temperature:
+$$
+    \Delta f_{\text{Doppler}}=\sqrt{\frac{8kT\cdot \text{ln}(2)}{m c^2}}\cdot f_0 = 604 \text{MHz}
+$$
+Hence the total gaussian contribution result in:
+$$
+    \Delta f_{\text{Gauss}} = \sqrt{\Delta f^{2}_{\text{Laser}} + \Delta f^{2}_{\text{Doppler}}} = 2.28 \text{GHz}
+$$
+
+The FWHM of the Voigt profile is then extracted:
+$$
+    \begin{aligned}
+        \Delta f_{\text{Voigt}}&=0.5346\times\Delta f_{\text{Lorentz}} +  \sqrt{0.2166\times\Delta f^{2}_{\text{Lorentz}} + \Delta f^{2}_{\text{Gauss}}}\\
+        &=0.5346\times3\text{GHz} +  \sqrt{0.2166\times(3\text{GHz})^{2} + (2.28\ \text{GHz})^{2}}\\
+        &=4.28\ \text{GHz}
+    \end{aligned}
+$$
+
+## c
+
+Only the hot cavity has a resolution below 4GHz
+
+# Problem 2
+
+## a
+
+A laser tuned in resonance with the $^{232}\text{Th}$ transition from $0 \to 38278$ cm$^{-1}$ is directed into a hot cavity at a temperature of $T=1800$ K. The frequency of the transition is then :
+$$
+    f_0=\frac{c}{\lambda}=c k=114.834 \ \text{GHz}
+$$
+The Doppler broadening can be computed using the equation
+$$
+    \Delta f_{\text{Doppler}}=\sqrt{\frac{8kT\cdot \text{ln}(2)}{m c^2}}\cdot f_0=2.28498 \ \text{GHz}
+$$
+
+Accelerating the beam to  40 kV the energy spread will still be present, but the velocity spread will shrink. This can be computed from:
+$$
+E = \dfrac{m v^2}{2}
+$$
+$$
+\Delta E = m v \Delta v
+$$
+
+$$
+\Delta v = \dfrac{\Delta E}{\sqrt{2 m E}}
+$$
+
+The energy spread can be computed in the hot cavity knowing the doppler broadening calculated above, since the velocity spread is what gives the doppler broadening, as the doppler shift widens the frequency band $\dfrac{\Delta f}{f} = \dfrac{\Delta v}{c}$:
+
+$$
+\Delta E = \dfrac{\Delta f}{f}\sqrt{2mE} = \dfrac{\Delta f}{f}\sqrt{mkTc^2} = 0.37\ eV  
+$$
+
+Using this energy spread the doppler broadening of a 40 kV beam can be computed :
+
+$$
+ \Delta f = f \dfrac{\Delta v}{c} = f \dfrac{\Delta E}{\sqrt{2mEc^2}}=3.2\ \text{MHz}
+$$
+
+The compression factor is:
+$$
+\dfrac{2.3\ \text{GHz}}{3.2\ \text{MHz}} = 718 \approx 1\times10^3
+$$
+
+# Problem 3
+
+## a
+
+As computed in the previous exercise:
+
+$$
+\Delta f = f \dfrac{\Delta v}{c} = f \dfrac{\Delta E}{\sqrt{2 m E c^2}} = 10^{15}\ \text{Hz} \times \dfrac{1\ \text{eV}}{\sqrt{2\cdot100\cdot931.494\ \text{MeV}\cdot 40\ \text{keV} }}= 11.58\ \text{MHz} \approx 12\ \text{MHz}  
+$$
+
+# Problem 4
+
+## a
+The D2 transitions are listed in the following table:
+
+| Transition | Transition [MHz]|
+|:-:|:-:|
+| $^{24}$Mg D2 (3s$_{1/2}$-3p$_{3/2}$-)|  1072082934.33(16)| 
+| $^{26}$Mg D2 (3s$_{1/2}$-3p$_{3/2}$-)|  1072086021.89(16)| 
+: Measured D2 transitions from [ @batteiger2009precision] {#tbl-D2-transitions}
+
+
+The energy spreads for both isotopes is computed from the Doppler broadening formula:
+$$
+    \delta \nu_D = \nu_0\dfrac{\delta E}{\sqrt{2 E m c^2}} \Rightarrow  \delta E= \sqrt{2 E m c^2}\dfrac{\delta \nu_D }{\nu_0}
+$$
+Hence, assuming a linewidth governed by Doppler broadening :
+$$
+    \begin{aligned}
+    \mathbf{^{24}\textbf{Mg}}& \\
+    \delta E &= 1.91 \text{eV}\\
+    \end{aligned}
+    \qquad \qquad
+    \begin{aligned}
+    \mathbf{^{26}\textbf{Mg}}& \\
+    \delta E &= 1.99 \text{eV}\\
+    \end{aligned}
+$$
+
+## b 
+
+The relativistic doppler shift equation is:
+
+$$
+\nu_{obs} = \nu_{rest}\sqrt{\dfrac{1-\beta}{1+\beta}}
+$$
+with:
+$$
+\beta = \sqrt{1-\left( \dfrac{mc^2}{mc^2+E_k}\right)^2}
+$$
+
+Applying the formula for the two masses and kinetic energies the following frequency shifts are found:
+
+| Isotope | 1.5 keV shift [MHz]| 1.54 keV shift [MHz]|
+|:-:|:-:|:-:|
+| $^{24}$Mg|  377256|382252| 
+| $^{26}$Mg|  392658|397858|
+|Isotope Shift $\delta \nu$|15402|15606| 
+: doppler and isotope shift at different beam energies {#tbl-is}
+
+The corresponding change in IS is therefore 204 MHz

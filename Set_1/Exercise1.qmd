@@ -20,7 +20,7 @@ format:
       - heightrounded
 ---
 
-Available at [exercise1](https://andry3vi.github.io/FYSS3552/Exercise1.html)
+Available at [https://andry3vi.github.io/FYSS3552/index.html](https://andry3vi.github.io/FYSS3552/index.html)
 
 # Problem 1
 ## a
