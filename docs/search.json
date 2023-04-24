@@ -25,7 +25,7 @@
     "href": "Exercise1.html#a-1",
     "title": "Laser Exercise 1",
     "section": "a",
-    "text": "a\nFrom the wave numbers \\(k\\) in \\(\\text{cm}^{-1}\\) given for the 2 J states involved of the considered D2 transition, one can give the transition in nm unit, using the wavelength \\(\\lambda\\) : \\[\n   \\Delta \\lambda=\\frac{2\\pi}{\\Delta k}=\\frac{2\\pi}{12816.55\\times 10^{7}}=780.2412 \\ \\text{nm}\n\\] One can also give the transition in THz using the frequency \\(\\nu\\) : \\[\n    \\Delta \\nu=\\frac{\\text{c}}{\\Delta \\lambda}=384.2305 \\ \\text{THz}\n\\]"
+    "text": "a\nFrom the wave numbers \\(k\\) in \\(\\text{cm}^{-1}\\) given for the 2 J states involved of the considered D2 transition, one can give the transition in nm unit, using the wavelength \\(\\lambda\\) : \\[\n   \\Delta \\lambda=\\frac{1}{\\Delta k}=\\frac{1}{12816.55\\times 10^{7}}=780.2412 \\ \\text{nm}\n\\] One can also give the transition in THz using the frequency \\(\\nu\\) : \\[\n    \\Delta \\nu=\\frac{\\text{c}}{\\Delta \\lambda}=384.2305 \\ \\text{THz}\n\\]"
   },
   {
     "objectID": "Exercise1.html#b-1",

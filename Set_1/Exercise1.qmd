@@ -130,7 +130,7 @@ $$
 ## a
 From the wave numbers $k$ in $\text{cm}^{-1}$ given for the 2 J states involved of the considered D2 transition, one can give the transition in nm unit, using the wavelength $\lambda$ :
 $$
-   \Delta \lambda=\frac{2\pi}{\Delta k}=\frac{2\pi}{12816.55\times 10^{7}}=780.2412 \ \text{nm}
+   \Delta \lambda=\frac{1}{\Delta k}=\frac{1}{12816.55\times 10^{7}}=780.2412 \ \text{nm}
 $$
 One can also give the transition in THz using the frequency $\nu$ :
 $$
