@@ -20,6 +20,8 @@ format:
       - heightrounded
 ---
 
+Available at [exercise1](https://andry3vi.github.io/FYSS3552/Exercise1.html)
+
 # Problem 1
 ## a
 Given an uniform charge distribution inside a sphere of radius $R$ the charge density is computed as:
