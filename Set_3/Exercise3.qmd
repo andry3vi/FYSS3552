@@ -1,0 +1,232 @@
+---
+title: "Laser Exercise 3"
+subtitle: "FYSS3552"
+highlight-style: github #pygments
+number-sections: False
+jupyter: python3
+bibliography: references.bib
+format:
+  html:
+    code-fold: true 
+    fig-pos: 'h!'
+    toc: true
+  pdf:
+    documentclass: article
+    papersize: a4paper
+    fig-pos: 'H'
+    code-fold: true
+    geometry:
+      - top=30mm
+      - left=20mm
+      - heightrounded
+---
+Available at [https://andry3vi.github.io/FYSS3552](https://andry3vi.github.io/FYSS3552)
+
+# Problem 1
+## a
+Let's considering laser separation of two isotopes using a 2-step laser ionization scheme. The isotope shifts are 3 GHz for the first excitation and 5 GHz for the second excitation step, respectively. Assuming a FWMH laser bandwidth of $\Delta_{\text{laser},1}=2$ GHz for the first step, $\Delta_{\text{laser},2}=3$ GHz for the second step and ignoring the natural linewidth as well as any saturation of the transitions or contributions from Doppler broadening, one wants to compute the selectivity, i.e. the ratio of the ion signal of the two isotopes when both lasers frequencies are set resonant to one isotope :
+$$
+    S=\frac{I_{M1}(\nu_0^{M1})}{I_{M2}(\nu_0^{M1})}
+$$
+with $I_{M1}(\nu_0^{M1})$ being the intensity of the isotope $1$ at its atomic resonance $\nu_0^{M1}$ and $I_{M2}(\nu_0^{M1})$ being the intensity of the isotope $M2$ at the atomic resonance of the isotope $M1$. Assuming a Gaussian intensity distribution of the form,
+$$
+    I(\sigma,\nu)=\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(\nu-\nu_0)^2}{2\sigma^2}}
+$$
+The intensity distributions for isotopes $M1$ and $M2$ in the first step are respectively,
+$$ 
+I_{M1}(\sigma_1,\nu)=\frac{1}{\sigma_1\sqrt{2\pi}}e^{-\frac{(\nu-\nu_0^{M1})^2}{2\sigma_1^2}}
+$$
+$$
+I_{M2}(\sigma_1,\nu)=\frac{1}{\sigma_1\sqrt{2\pi}}e^{-\frac{(\nu-\nu_0^{M2})^2}{2\sigma_1^2}}
+$$
+with $\sigma_1=\frac{\Delta_{\text{laser},1}}{2\sqrt{2\text{ln}2}}$, $\nu_0^{M1}=0$ and $\nu_0^{M2}=3$ GHz so $\mid \nu_0^{M1}-\nu_0^{M2} \mid_1=3$ GHz.
+
+The intensity distributions for isotopes $M1$ and $M2$ in the second step are respectively,
+$$ 
+I_{M1}(\sigma_2,\nu)=\frac{1}{\sigma_2\sqrt{2\pi}}e^{-\frac{(\nu-\nu_0^{M1})^2}{2\sigma_2^2}}
+$$
+$$
+I_{M2}(\sigma_2,\nu)=\frac{1}{\sigma_2\sqrt{2\pi}}e^{-\frac{(\nu-\nu_0^{M2})^2}{2\sigma_2^2}}
+$$
+with $\sigma_2=\frac{\Delta_{\text{laser},2}}{2\sqrt{2\text{ln}2}}$, $\nu_0^{M1}=0$ and $\nu_0^{M2}=5$ GHz so $\mid \nu_0^{M1}-\nu_0^{M2} \mid_2=5$ GHz.
+
+One obtains the following plots :
+
+```{python}
+#| label: fig-iso
+#| fig-cap: Isotope signals intensity distribution. In blue figures the intensity distribution of the isotope of interest $M1$ and in red the intensity distribution of the other isotope $M2$. The first plot corresponds to the intensities for the first step $(left)$.  The second plot corresponds to the intensities for the second step $(right)$
+
+import matplotlib.pyplot as plt
+import numpy as np
+import matplotlib.gridspec as gridspec
+
+def gauss(x,cen,wid,amp):
+    return np.exp(-1*(x-cen)**2/(2*wid**2))/(wid*np.sqrt(2*np.pi))
+size = 18
+plt.rcParams['font.size']=size
+fig_plot = plt.figure(figsize=(20,9),dpi=100)
+gs = gridspec.GridSpec(1, 2, fig_plot)
+axs_1step = fig_plot.add_subplot(gs[0, 0])
+axs_2step = fig_plot.add_subplot(gs[0, 1])
+
+xx = np.linspace(-5,10,1000)
+
+yy_M1 = gauss(xx,0,2/(2*np.sqrt(2*np.log(2))),1)
+yy_M2 = gauss(xx,3,2/(2*np.sqrt(2*np.log(2))),1)
+
+axs_1step.plot(xx,yy_M1,"b-",linewidth=2)
+axs_1step.plot(xx,yy_M2,"r-",linewidth=2)
+
+yy_M1 = gauss(xx,0,3/(2*np.sqrt(2*np.log(2))),1)
+yy_M2 = gauss(xx,5,3/(2*np.sqrt(2*np.log(2))),1)
+
+axs_2step.plot(xx,yy_M1,"b-",linewidth=2)
+axs_2step.plot(xx,yy_M2,"r-",linewidth=2)
+
+axs_1step.set_xlabel(r"Frequency w.r.t. $\nu_0^{M1}$ [GHz]")
+axs_2step.set_xlabel(r"Frequency w.r.t. $\nu_0^{M1}$ [GHz]")
+
+axs_1step.set_ylabel(r"Intensity [n.u.]")
+axs_2step.set_ylabel(r"Intensity [n.u.]")
+
+plt.show()
+```
+
+The isotope signal ratios are then computed.
+The selectivity for the first step is: 
+$$
+    S_1=e^{\frac{3\text{GHz}^2}{2\sigma_1^2}}=512
+$$
+And the one for the second step is :
+$$
+    S_2=e^{\frac{5\text{GHz}^2}{2\sigma_2^2}}=2212
+$$
+
+The total selectivity is in the end :
+$$
+    S=S_1S_2
+$$
+$$
+\boxed{S=1132544}
+$$
+
+# Problem 2
+## a
+Assuming the resonance to be far from other contaminants the selectivity is approximated:
+$$
+    S\sim4\dfrac{\Delta^2}{\Gamma^2}
+$$
+where $\Delta$ correspond to the laser detuning between Kr isotopes and $\Gamma$ is extracted from the lifetime of the upper level:
+$$
+    \Gamma=\dfrac{1}{2 \pi \tau}
+$$
+
+Hence $S\sim$1151.19 , using a three step resonance process the overall selectivity would be $S_{tot}=S^3\sim1.5\times10^9$, not enough to resolve the natural abundance of $^{81}$Kr.
+
+## b
+The photon momentum is computed as 
+$$
+    P_{ph.}=\dfrac{h}{\lambda}
+$$
+and correspond to the the average momentum loss of the ion.
+Hence the velocity is extracted as:
+$$
+    v_{loss}=P_{ph.}/M_{^{81}\text{Kr}}=6.08\ \text{mm/s}
+$$
+
+## c 
+Assuming resonance and high laser intensity the cycle time is:
+$$
+T_{cycle} = 2\tau \left[ 1+\dfrac{I_{sat}}{I}\left( 1+4\dfrac{\Delta ^2}{\Gamma^2}\right)\right] \rightarrow 2\tau
+$$
+
+The maximum force on a particle is then given by:
+
+$$
+F=\dfrac{h}{2 \lambda \tau} = ma
+$$
+
+The acceleration can be then calculated:
+$$
+a = -1.12 \times 10^5 \quad \text{m/s}
+$$
+
+## d
+Given the initial velocity of 300 m/s, the stopping time and distance are given by the kinematic equation:
+$$
+s = v_i t + \dfrac{at^2}{2}
+$$
+hence
+$$
+t = -\dfrac{v_i}{a} = 2.7 \text{ms}
+$$
+and a distance of 0.4 m
+
+## e
+The number of cycles is computed as :
+$$
+    C = v/v_{loss}=49377
+$$
+
+Assuming a Doppler shift equal to $\Gamma$ the velocity shift needed is computed as:
+$$
+    \delta v = \delta \nu_{D} \dfrac{c}{\nu_{0}} \sim 4.78\ \text{m/s}
+$$
+Hence the number of cycle needed is 
+$$
+    C_{shift} = \dfrac{\delta v}{v_{loss}}\sim 786 
+$$
+
+## f
+The saturation intensities is computed as
+$$
+    I_{s} = \dfrac{\pi h c }{3 \lambda^2 \tau} \times \dfrac{2F_{ex}+1}{ 3(2F_{gs}+1)} \sim 3.7\ \text{mW/cm}^2
+$$
+
+The trapping transition rate, is given by:
+
+$$
+T_{cycle} = \dfrac{1}{2\tau} \left[ 1+\dfrac{I_{sat}}{I}\left( 1+4\dfrac{\Delta ^2}{\Gamma^2}\right)\right]^{-1}
+$$
+
+Considering a used power of 20 mW/cm$^2$ (retroreflected beam):
+$$
+R=9.47 \text{MHz}
+$$
+
+## g
+Photon rate is given by scattering rate multiplied by detection efficiencies:
+$$
+N=R \varepsilon_{quantum}\varepsilon_{\Omega} = 23677
+$$
+
+Power is then given by:
+$$
+P=\dfrac{h c}{\lambda} N = 5.8\times10^{-15}\quad\text{W}
+$$
+
+<!--
+
+\
+
+
+\subsection*{f)}
+The trapping transition rate is computed as:
+\begin{equation}
+    R= \dfrac{\Gamma}{2} \left[ 1+ \dfrac{I_0}{I}\left( 1+4\dfrac{\Delta^2}{\Gamma^2}\right)\right]^{-1}
+\end{equation}
+
+$I_0$ is the saturation intensity and is computed as
+The second term is needed to account the degeneracy due to hyperfine structure.
+
+Hence $R = 2.8\times10^{6}$
+\subsection*{g)}
+The number of photon detected is computed as 
+\begin{equation}
+    N_{ph.} = C\times \text{Solid Angle} \times \text{PMT}_QE \sim 7068 
+\end{equation}
+with a single laser beam.
+The corresponding detected energy is 
+\begin{equation}
+    P = N_{ph.} \dfrac{h c}{\lambda} = 1.73\ \text{fmW}
+\end{equation} -->
