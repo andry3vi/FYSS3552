@@ -4,7 +4,6 @@ subtitle: "FYSS3552"
 highlight-style: github #pygments
 number-sections: False
 jupyter: python3
-bibliography: references.bib
 format:
   html:
     code-fold: true 
